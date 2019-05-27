@@ -3,7 +3,7 @@
 {% block title %}Edit Profile - {{ user.username }}{% endblock %}
 
 {% block content %}
-<h2>Sign up</h2>
+<h3>Update Profile</h3>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}

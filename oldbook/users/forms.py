@@ -12,10 +12,13 @@ class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'image')
+        fields = ('username', 'email')
 
-# class EditProfileForm(UserChangeForm):
-#
-#     class Meta:
-#         model = CustomUser
-#         fields = ('username', 'email', 'image')
+class EditProfileForm(forms.ModelForm):
+    username = CustomUser.username
+    email = CustomUser.email
+    image = CustomUser.image
+
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'email', 'image')
