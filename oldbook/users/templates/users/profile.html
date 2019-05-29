@@ -1,13 +1,52 @@
 {% extends 'base.html' %}
 
-{% block title %} Profile {% endblock %}
+{% block title %}{{ user.username}} ({{user.first_name}} {{user.last_name}}) {% endblock %}
 
 {% block content %}
 <div class="container section">
-  <h3>{{ user.username }}</h3>
-  {% if user.image %}
-      <img src="{{ user.image.url }}" alt="Avatar">
+  {% if user_profile.avatar %}
+      <img src="{{ user_profile.avatar.url }}" alt="Avatar">
   {% endif %}
-  <small><a href="{% url 'edit_profile' %}">Edit Profile</a></small>
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="well well-md">
+                  <div class="row">
+                      <div class="col-sm-6 col-md-4">
+                          <img src="{{ user.profile.image.url }}" alt="avatar" class="rounded-circle img-fluid"/>
+                      </div>
+                      <div class="col-sm-6 col-md-8 float-right">
+                          <h4>
+                              {{ user.username.capitalize }}
+                          </h4>
+                          <small><cite title="San Francisco, USA"> <i class="fas fa-map">
+                          </i></cite> Tamghas</small>
+                          <p>
+                              <span class="fas fa-envelope"></span> {{user.email}}
+                              <br />
+                              <i class="fas fa-globe"> </i> <a href="#"> www.anjaan.com</a>
+                              <br />
+                              <i class="fas fa-gift"> </i> {{user.date_joined}}</p>
+                          <!-- Split button -->
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-primary">
+                                  Social</button>
+                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span><span class="sr-only">Social</span>
+                              </button>
+                              <ul class="dropdown-menu" role="">
+                                  <li> <i class="fab fa-twitter"></i><a href="#"> Twitter</a></li>
+                                  <li><i class="fab fa-google"></i><a href="#"> Google +</a></li>
+                                  <li><i class="fab fa-facebook-f"></i><a href="#"> Facebook</a></li>
+                                  <hr>
+                                  <li><i class="fab fa-github"></i><a href="#"> Github</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 {% endblock %}
