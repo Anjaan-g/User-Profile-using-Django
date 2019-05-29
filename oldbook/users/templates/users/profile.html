@@ -3,10 +3,7 @@
 {% block title %}{{ user.username}} ({{user.first_name}} {{user.last_name}}) {% endblock %}
 
 {% block content %}
-<div class="container section">
-  {% if user_profile.avatar %}
-      <img src="{{ user_profile.avatar.url }}" alt="Avatar">
-  {% endif %}
+<br>
   <div class="container">
       <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
@@ -20,13 +17,13 @@
                               {{ user.username.capitalize }}
                           </h4>
                           <small><cite title="San Francisco, USA"> <i class="fas fa-map">
-                          </i></cite> Tamghas</small>
+                          </i></cite> {{ user.profile.location }}</small>
                           <p>
                               <span class="fas fa-envelope"></span> {{user.email}}
                               <br />
                               <i class="fas fa-globe"> </i> <a href="#"> www.anjaan.com</a>
                               <br />
-                              <i class="fas fa-gift"> </i> {{user.date_joined}}</p>
+                              <i class="fas fa-gift"> </i> {{user.profile.dob}}</p>
                           <!-- Split button -->
                           <div class="btn-group">
                               <button type="button" class="btn btn-primary">
