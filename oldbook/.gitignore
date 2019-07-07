@@ -1,0 +1,6 @@
+virtualenv
+*.pyc
+static
+.env
+db.sqlite3
+oldbook/*
